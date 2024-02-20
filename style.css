@@ -1,0 +1,192 @@
+/* Seletor universal, seleciona todos os elementos da tela */
+/* Aqui estamos aplicando um "reset" no CSS, zerando alguns valores padrões,
+   inseridos pelo próprio navegador. */
+* {
+    margin: 0;
+    padding: 0;
+
+    /* Define que o tamanho das caixas dos elementos vai ser de acordo com a borda da caixa,
+    e não o seu conteúdo (padrão content-box) */
+    box-sizing: border-box;
+    
+    /* border: 1px solid red; */
+}
+
+/* Pseudo classe que define os estilos do elemento raiz do documento, geralmente <html> */
+/* Também pode ser usado para definir variáveis */
+:root {
+    /* Definição de variáveis para serem utilizadas em outros lugares do código */
+    --text-color: #FFF;
+    --border-color: ghostwhite;
+    --background-image: url('./assets/bg-mobile.jpg');
+    --stroke-color: rgba(255,255,255,0.5);
+    --surface-color: rgba(255,255,255,0.1);
+    --surface-color-hover: rgba(0,0,0,0.2);
+    --highlight-color-mode: rgba(255,255,255,0.2);
+    --switch-bg-url: url('./assets/moon-stars.svg');
+}
+
+.light {
+    --text-color: #000;
+    --background-image: url('./assets/bg-mobile-light.jpg');
+    --stroke-color: rgba(0,0,0,0.5);
+    --surface-color: rgba(0,0,0,0.05);
+    --surface-color-hover: rgba(255,255,255,0.05);
+    --highlight-color-mode: rgba(0,0,0,0.1);
+    --switch-bg-url: url('./assets/sun.svg');
+}
+
+body {
+    /* Adiciona uma imagem como plano de fundo de um elemento */
+    /* background-image: url('./assets/bg-mobile.jpg'); */
+
+    /* Determina que a imagem não irá se repetir */
+    /* background-repeat: no-repeat; */
+
+    /* Posicionamento da imagem, primeiro valor é X (horizontal) e o segundo valor é Y (vertical) */
+    /* background-position: center; */
+
+    /* Define o tamanho da imagem, "cover" para cobrir todo o conteúdo. "contain" para cobrir o conteúdo do elemento atual */
+    /* background-size: cover; */
+
+    /* Shorthand, que define vários valores de uma vez */
+    background: var(--background-image) no-repeat top center / cover;
+}
+
+/* Seleciona todos os elementos dentro de body */
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 16px 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+ul li a:hover {
+    background-color: var(--surface-color-hover);
+}
+
+#container {
+    height: 712px;
+    width: 360px;
+
+    /* 56px no topo, auto nas laterais e 0 em baixo */
+    margin: 56px auto 0;
+    
+    padding: 24px;
+
+    /* Nesse shorthand, o "auto" é aplicado para as margens de todos os lados. Mas o CSS por padrão não aplica esse valor para margens de cima e de baixo. Portanto será aplicado somente nas margens da direita e da esquerda. */
+    /* margin: auto; */
+}
+
+#profile {
+    /* Alinha textos e imagens ao centro */
+    text-align: center;
+    margin: 20px 0;
+}
+
+#profile img {
+    width: 112px;
+    border-radius: 100%;
+    border: 1.7px solid var(--border-color);
+}
+
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 4px;
+}
+
+#switch * {
+    cursor: pointer;
+}
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background-color: #FFF;
+    border: none;
+    border-radius: 50%;
+    background-image: var(--switch-bg-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+
+    /* Fazer com que o botão fique em uma camada acima do span */
+    z-index: 1;
+
+    /* Alinhar o elemento no centro */
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.light #switch button {
+    right: 0;
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+#social-links {
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+
+    transition: background .2s;
+}
+
+#social-links a:hover {
+    background-color: var(--highlight-color-mode);
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
