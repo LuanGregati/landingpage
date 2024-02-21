@@ -51,6 +51,7 @@ body {
 
     /* Shorthand, que define vários valores de uma vez */
     background: var(--background-image) no-repeat top center / cover;
+    height: 100vh;
 }
 
 /* Seleciona todos os elementos dentro de body */
@@ -89,7 +90,8 @@ ul li a:hover {
 
 #container {
     height: 712px;
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
 
     /* 56px no topo, auto nas laterais e 0 em baixo */
     margin: 56px auto 0;
@@ -189,4 +191,21 @@ footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+}
+
+/* Media Query */
+/**
+* Necessário que a tag abaixo esteja definida no HTML
+* <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+/* A partir de 700px da largura da tela, aplicar regras específicas */
+@media (min-width: 700px) {
+    /* Mudar o background */
+    :root {
+        --background-image: url('./assets/bg-desktop.jpg');
+    }
+
+    .light {
+        --background-image: url('./assets/bg-desktop-light.jpg');
+    }   
 }
