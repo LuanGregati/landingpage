@@ -148,11 +148,21 @@ ul li a:hover {
     /* Alinhar o elemento no centro */
     transform: translateY(-50%);
     top: 50%;
+
+    /* Nesse caso, eu não preciso do "forwards", porque a posição inicial do elemento aqui já é "left: 0;" */
+    animation: slide-out 0.2s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    /* Aplica a animação no elemento quando a for "light" */
+    /* Forwards é usado para que ele não volte para os valores da propriedade originais do elemento, quando ela acabar. */
+    animation: slide-in 0.2s forwards;
+    /* right: 0;
+    left: initial; */
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color-mode);
 }
 
 #switch span {
@@ -208,4 +218,28 @@ footer {
     .light {
         --background-image: url('./assets/bg-desktop-light.jpg');
     }   
+}
+
+/**
+* At-rule para criar animações no CSS
+* Sintaxe: @keyframes nome_da_animacao_qualquer { from: ... to: ... };
+*/
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }
