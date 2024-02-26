@@ -109,9 +109,9 @@ ul li a:hover {
 }
 
 #profile img {
-    width: 112px;
-    border-radius: 100%;
-    border: 1.7px solid var(--border-color);
+    max-width: 150px;
+    /* border-radius: 100%; */
+    /* border: 1.7px solid var(--border-color); */
 }
 
 #profile p {

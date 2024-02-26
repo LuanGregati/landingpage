@@ -8,9 +8,9 @@ function toggleMode() {
     const img = document.querySelector('#profile img');
 
     // Verifico se na lista de classes atribuídas ao elemento, eu possuo a classe "light"
-    if (html.classList.contains('light')) {
-        img.setAttribute('src', './assets/luan-light.jpg');
-    }else{
-        img.setAttribute('src', './assets/luan-dark.jpg');
-    }
+    // if (html.classList.contains('light')) {
+    //     img.setAttribute('src', './assets/luan-light.jpg');
+    // }else{
+    //     img.setAttribute('src', './assets/moon-stars-svgrepo-com.svg');
+    // }
 }
